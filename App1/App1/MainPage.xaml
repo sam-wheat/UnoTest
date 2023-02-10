@@ -1,14 +1,24 @@
 ﻿<Page
-    x:Class="App1.MainPage"
+    x:Class="App1.MainPage" x:Name="mainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:App1"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:localControls="using:Lib1"
     mc:Ignorable="d"    
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-      <TextBlock Text="Hello, world!" Margin="20" FontSize="30" />
+      <TextBlock x:Name="tb1" Text="Hello, world!" Margin="20" FontSize="30" />
+
+        <!--DataContext="{Binding ElementName=mainWindow}"-->
+
+        <localControls:CustomControl1 
+            
+            IntProperty="5" 
+            IntProperty2="{Binding SomeProperty}" 
+            IntProperty3="{Binding ElementName=tb1, Path=Width}">
+        </localControls:CustomControl1>
     </Grid>
 </Page>
